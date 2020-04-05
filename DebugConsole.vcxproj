@@ -19,14 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Console.cpp" />
-    <ClCompile Include="src\Exception.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="include\DebugConsole.h" />
     <ClInclude Include="src\Console.h" />
-    <ClInclude Include="src\ConsoleException.h" />
-    <ClInclude Include="src\Exception.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Console.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
