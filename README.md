@@ -5,12 +5,16 @@
 How to:
 - Include header file `include/DebugConsole.h`
 - Include static lib `DebugConsole.lib`
-- Define macro:
+- Define macros:
     - If use `main` entry point:
     ```C++  
     #define DEBUG_CONSOLE_MAIN
     ```
     - If use `wWinMain` entry point: __do not define anything__
+    - Define debug macro to compile console:
+    ```C++
+    #define _DEBUG
+    ```
 - Initialize debug console by invoking macro:
     ```C++
     ENABLE_DEBUG_CONSOLE();
