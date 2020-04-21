@@ -1,9 +1,9 @@
 #pragma once
 #include <windows.h>
 #include <memory>
-#include <string>
-#include <sstream>
+#include <iostream>
 #include <cassert>
+#include <string>
 
 namespace DebugConsole
 {
@@ -25,20 +25,20 @@ namespace DebugConsole
 
 		Console& operator<<(std::wstring_view message)
 		{
-			assert(WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), message.data(), message.size(), nullptr, nullptr) != FALSE);
+			assert(WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), message.data(), static_cast<DWORD>(message.size()), nullptr, nullptr) != FALSE);
 			return *this;
 		}
 
 		Console& operator<<(const wchar_t* message)
 		{
 			std::wstring_view view = message;
-			assert(WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), view.data(), view.size(), nullptr, nullptr) != FALSE);
+			assert(WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), view.data(), static_cast<DWORD>(view.size()), nullptr, nullptr) != FALSE);
 			return *this;
 		}
 
 		Console& operator<<(const std::wstring& message)
 		{
-			assert(WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), message.c_str(), message.size(), nullptr, nullptr) != FALSE);
+			assert(WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), message.c_str(), static_cast<DWORD>(message.size()), nullptr, nullptr) != FALSE);
 			return *this;
 		}
 
@@ -52,7 +52,7 @@ namespace DebugConsole
 		Console& operator<<(T number)
 		{
 			std::wstring message = std::to_wstring(number);
-			assert(WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), message.c_str(), message.size(), nullptr, nullptr) != FALSE);
+			assert(WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), message.c_str(), static_cast<DWORD>(message.size()), nullptr, nullptr) != FALSE);
 			return *this;
 		}
 
